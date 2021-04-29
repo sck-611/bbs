@@ -9,12 +9,13 @@ class PostController extends Controller
 {
     //
     public function index(){
-        return view('bbs');
+        return view('bbs',['posts'=>Post::all()->sortByDesc("created_at")]);
     }
     public function create(Request $request){
         $post = new Post;
         $post->body = $request->honbun;
         $post->user_id = Auth::id();
         $post->save();
+        return redirect('/');
     }
 }

@@ -15,6 +15,16 @@
                     </form>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header">投稿一覧</div>
+                @foreach ($posts as $post)
+                    <div class="card-body">
+                        <p>{{$post->user->name}}さんの投稿です</p>
+                        <p>内容：{{$post->body}}</p>
+                        <p>投稿日時：{{$post->created_at}}</p>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>
